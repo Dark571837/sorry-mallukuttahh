@@ -12,101 +12,137 @@
       justify-content: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    }.card {
+      overflow: hidden;
+    }/* Envelope */
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  background: #f8b4c0;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f497b6;
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+  transform-origin: top;
+  animation: openFlap 2s forwards;
+  z-index: 3;
+}
+
+@keyframes openFlap {
+  to { transform: rotateX(180deg); }
+}
+
+/* Letter */
+.card {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
   background: white;
-  padding: 30px 40px;
-  border-radius: 20px;
-  max-width: 420px;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  animation: fadeIn 1.2s ease;
+  z-index: 2;
+  animation: slideUp 2s forwards;
+  animation-delay: 1.5s;
+  transform: translateY(120px);
+}
+
+@keyframes slideUp {
+  to { transform: translateY(0); }
 }
 
 h1 {
   color: #e63946;
-  margin-bottom: 10px;
-  font-size: 2.2rem;
+  font-size: 1.7rem;
+  margin-bottom: 5px;
 }
 
 p {
   color: #333;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .heart {
-  font-size: 2.5rem;
-  animation: beat 1s infinite;
-  margin: 15px 0;
+  font-size: 2rem;
+  margin: 5px 0;
+}
+
+.kittens {
+  font-size: 1.4rem;
+  margin: 5px 0;
 }
 
 .buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  margin-top: 12px;
+  position: relative;
+  height: 50px;
 }
 
 button {
-  padding: 10px 22px;
+  padding: 8px 18px;
   border: none;
-  border-radius: 25px;
-  font-size: 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  position: absolute;
 }
 
 .yes {
   background: #e63946;
   color: white;
-}
-
-.yes:hover {
-  background: #d62839;
-  transform: scale(1.05);
+  left: 40px;
 }
 
 .no {
   background: #adb5bd;
   color: #333;
-}
-
-.no:hover {
-  transform: scale(1.05);
-}
-
-@keyframes beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  right: 40px;
 }
 
   </style>
 </head>
-<body>
-  <div class="card">
-    <h1>Sorry Mallukuttahh 🥺</h1>
-    <div class="heart">❤️</div>
-    <p>
-      I know I hurt you, and I'm really really sorry, Mallukuttahh.
-      You mean a lot to me, and I never want to lose you.
-      Please forgive me?
-    </p>
-    <div class="buttons">
-      <button class="yes" onclick="yesClicked()">Yes 💖</button>
-      <button class="no" onclick="noClicked()">No 🙃</button>
+<body>  <div class="envelope">
+    <div class="flap"></div>
+    <div class="card">
+      <h1>Sorry Mallukuttahh 🥺</h1>
+      <div class="kittens">🐱🐾🐱</div>
+      <div class="heart">❤️</div>
+      <p>
+        I know I hurt you and I'm really really sorry 😞.<br>
+        You mean a lot to me Mallukuttahh 🐱💗<br>
+        Please forgive me?
+      </p>
+      <div class="buttons">
+        <button class="yes" onclick="yesClicked()">Yes 💖</button>
+        <button class="no" id="noBtn">No 🙃</button>
+      </div>
     </div>
   </div>  <script>
     function yesClicked() {
-      alert("Yayyy 😭💗 Thank you Mallukuttahh! I promise njn inii iggane cheyulaahh 🫶");
+      alert("Yayyy 😭💗 Thank you Mallukuttahh 🐱🫶 I promise I'll do better!");
     }
 
-    function noClicked() {
-      alert("I'll keep trying until you say yes 😔💔");
+    const noBtn = document.getElementById('noBtn');
+
+    function moveNoButton() {
+      const x = Math.random() * 180;
+      const y = Math.random() * 20;
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
     }
+
+    noBtn.addEventListener('mouseover', moveNoButton);
+    noBtn.addEventListener('touchstart', moveNoButton);
   </script></body>
 </html>
