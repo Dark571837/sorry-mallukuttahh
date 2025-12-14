@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorry Mallukuttahh</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    }.card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 1.2s ease;
+}
+
+h1 {
+  color: #e63946;
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+}
+
+p {
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.heart {
+  font-size: 2.5rem;
+  animation: beat 1s infinite;
+  margin: 15px 0;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.yes {
+  background: #e63946;
+  color: white;
+}
+
+.yes:hover {
+  background: #d62839;
+  transform: scale(1.05);
+}
+
+.no {
+  background: #adb5bd;
+  color: #333;
+}
+
+.no:hover {
+  transform: scale(1.05);
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sorry Mallukuttahh 🥺</h1>
+    <div class="heart">❤️</div>
+    <p>
+      I know I hurt you, and I'm really really sorry, Mallukuttahh.
+      You mean a lot to me, and I never want to lose you.
+      Please forgive me?
+    </p>
+    <div class="buttons">
+      <button class="yes" onclick="yesClicked()">Yes 💖</button>
+      <button class="no" onclick="noClicked()">No 🙃</button>
+    </div>
+  </div>  <script>
+    function yesClicked() {
+      alert("Yayyy 😭💗 Thank you Mallukuttahh! I promise njn inii iggane cheyulaahh 🫶");
+    }
+
+    function noClicked() {
+      alert("I'll keep trying until you say yes 😔💔");
+    }
+  </script></body>
+</html>
